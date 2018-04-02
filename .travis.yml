@@ -11,7 +11,7 @@ before_install:
   - npm --version
   - wget http://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip
   - unzip BrowserStackLocal-linux-x64.zip
-  - ./BrowserStackLocal $BROWSER_STACK_ACCESS_KEY localhost,9876,0 -tunnelIdentifier karma.$(date +%s) -force > /dev/null &
+  - ./BrowserStackLocal $BROWSER_STACK_ACCESS_KEY --only localhost,9876,0 --force > /dev/null &
   - sleep 15
 before_script:
 - export DISPLAY=:99.0
