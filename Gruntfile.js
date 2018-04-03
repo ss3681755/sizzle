@@ -194,10 +194,12 @@ module.exports = function( grunt ) {
 				singleRun: true
 			},
 			android: {
-				browsers: browsers.android
+				browsers: browsers.android,
+				singleRun: true
 			},
 			ios: {
-				browsers: browsers.ios
+				browsers: browsers.ios,
+				singleRun: true
 			},
 			oldIe: {
 				browsers: browsers.old.ie,
@@ -205,22 +207,28 @@ module.exports = function( grunt ) {
 				// Support: IE <=8 only
 				// Force use of JSONP polling
 				transports: [ "polling" ],
+				singleRun: true,
 				forceJSONP: true
 			},
 			oldOpera: {
-				browsers: browsers.old.opera
+				browsers: browsers.old.opera,
+				singleRun: true
 			},
 			oldFirefox: {
-				browsers: browsers.old.firefox
+				browsers: browsers.old.firefox,
+				singleRun: true
 			},
 			oldChrome: {
-				browsers: browsers.old.chrome
+				browsers: browsers.old.chrome,
+				singleRun: true
 			},
 			oldSafari: {
-				browsers: browsers.old.safari
+				browsers: browsers.old.safari,
+				singleRun: true
 			},
 			oldAndroid: {
-				browsers: browsers.old.android
+				browsers: browsers.old.android,
+				singleRun: true
 			},
 			all: {
 				browsers: browsers.phantom.concat(
@@ -235,7 +243,8 @@ module.exports = function( grunt ) {
 					browsers.old.opera,
 
 					browsers.old.android
-				)
+				),
+				singleRun: true
 			}
 		},
 		watch: {
