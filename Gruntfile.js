@@ -190,7 +190,8 @@ module.exports = function( grunt ) {
 				browsers: browsers.phantom
 			},
 			desktop: {
-				browsers: browsers.desktop
+				browsers: browsers.desktop,
+				singleRun: true
 			},
 			android: {
 				browsers: browsers.android
