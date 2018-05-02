@@ -102,6 +102,10 @@ module.exports = function( config ) {
 		config.browserStack.build = "travis #" + process.env.TRAVIS_BUILD_NUMBER;
 		config.browserStack.tunnelIdentifier = "karma." + process.env.TRAVIS_BUILD_NUMBER;
 
+		// BrowserStackLocal tunnel is started manually because of a
+		// corner-case in automated way causing tunnel to tear down early
+		config.browserStack.startTunnel = false;
+
 		// You can't get access to secure environment variables from pull requests
 		// so we don't have browserstack from them, but travis has headless Firefox so use that
 		if ( !(process.env.BROWSER_STACK_USERNAME && process.env.BROWSER_STACK_ACCESS_KEY) &&
