@@ -54,8 +54,8 @@ module.exports = function( grunt ) {
 			 "bs_ios-11.4", "bs_ios-12.0",
 		];
 		browsers.android = [
-			"bs_android-4.0", "bs_android-4.1", "bs_android-4.2",
-			"bs_android-4.3", "bs_android-4.4"
+			"bs_android-5.0", "bs_android-5.1", "bs_android-6.0", "bs_android-7.0",
+			"bs_android-7.1", "bs_android-8.0"
 		];
 
 		browsers.old = {
@@ -64,7 +64,10 @@ module.exports = function( grunt ) {
 			safari: [ "bs_safari-4.0", "bs_safari-5.0", "bs_safari-5.1" ],
 			ie: [ "bs_ie-7", "bs_ie-8" ],
 			opera: [ "bs_opera-11.6", "bs_opera-12.16" ],
-			android: [ "bs_android-2.3" ]
+
+			// Older versions of android are too unreliable to be included
+			// in the test suite. For more details, please check #314
+			android: [ "bs_android-4.4" ]
 		};
 	}
 
@@ -275,10 +278,10 @@ module.exports = function( grunt ) {
 		"karma:ios",
 
 		"karma:oldIe", "karma:oldFirefox", "karma:oldChrome",
-		"karma:oldSafari", "karma:oldOpera"
+		"karma:oldSafari", "karma:oldOpera",
 
 		// See #314 :-(
-		// "karma:android", "karma:oldAndroid"
+		"karma:android", "karma:oldAndroid"
 	] : "karma:phantom" );
 
 	grunt.registerTask( "build", [ "lint", "compile", "uglify", "dist", "ensure_ascii" ] );

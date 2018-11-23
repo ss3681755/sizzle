@@ -4,8 +4,13 @@ node_js:
 - '8'
 env:
   global:
-  - secure: UzENy1srzIScquAja5376P0dj4X6DJsskYrQjUtRpi6tvCtpx80DiFjFAY6JKUMw/BHuugABkBmP0q5o3kMbp2y6mZO0qg+CBUZ8MX/UipNv0/xWbP7ckayLXU7RvICTObfJ0bGwF5uxxoCUBJjoKFZ0YZH94Orq8XQgC8wbNMk=
-  - secure: EfY8wLmtbx+VH+sE0E3jRUP6hp78WjjumuWfhfB9R7+bRMhaj9kSVo+ReKQ5GExnJlm5DtU84fmDujO9gIDDgmZZ2/83PRJ5URSEXRCiyS8A82e4cw0Jz1NuU/nzUdv+gGwhdcYlKO3oTf39tPAvuxXWIwNcKddg9/NGAAZdUXI=
+    - secure: MyCyBGp2B/2y92qafP1LlqGTDNxXlHjmKYptpalWab8M/u5HVyRDc6b6lW9f7MKIJzcxREG+yF1wj2TDLDfJG9uyqCoPNejuHh6+huMxua/kd8QnBenrkGWON7mV0Hi6v8uWo6n6j12poee9YqrwU4pyYD2Kxud3qcX4sqlgc/gV984gQyJtUJtaxFbp4MqXhDfx3GSywXnt3bpjo7PYAvswh/A0s8TOwtr4ToQ8adBeuL/K+zlzqHzjEbyLtlYQ6OSAhEAHyNiaSdhlA6eBvv9WzHC8huAC4nO5KFzliHjGpRUgjVWhXm90TLKKIh/t6y2n1LyAORl++pK+JtVeh+1IUxNwnrY4IB3QmPAM6BWrInKacapdQlrKQF+5u4w8hxn0D8MrSZMImE84wUerWHlUJ9GXnoIgsgvG0dulVhxzdI0H6IJHVB8v4uMoiFTYTOoc5eHowA8U9oJXaz2ZCS8B4ky/AWaBGsF1FncL8tH1DnGHxMi7N+UOtAvcBymWqkDr3CjMUSGfmCDTmdkKc1zYQjJ3De4i2HkoYpAlvqCRN3iLk5LiwYRW3JIEjKeEa/FM18gggeUewr6w7Y0v2lKWDfDbds3Dy0K/ahNQeVd0sj5OY5Nq51bg89ioAf38AxukZGhFVdw2dF/yUR73UNuOKrXWo6/9iIbk9zkr0YI=
+    - secure: BHMb0/G1MKzWKLh/JOd95cVUBijfRiZYek7CETL8mnF9WO38JEJibRGppbdtlbs1uDz89jHy6923Gxvs77fiW8HYgPKI+CalndMithJ71A4VLpkClYYY2BxlU/kjLz48ICM66olwZ/SZijxUq1YixZGbu8W/Yinqa7BFnn0HEb/eT9mPHnMJzYChn0TvcQlqSbMj1xvG0WGsV/J7OH9C9Pp13utWyaq+bts0CxQFCAjHQHPkkZbpt7CGnmpljJTM/I+sjtng9lXNXYWGH5g5bUPzAh8DFSZNQ1s73tgqiIPw2fXkTROOLUrmb+PRWodFr8WNefZFdbXZ4IiIqJZn9gEQjHbsXOodMgBx0IndAhaFyg0OaeKcG9pal0onl0lA5EP6RbY0rEJL+6m+lNTeNctSNIyxEqILmB8eSBPPZETe56nnWnADygl04Uikd8mqxbOjQQH/1k50IWJJE5ViysM8nWBrVZ5hjcZmlERpJwq3OXF5PoQ7ylLCB9K7N9nuGOLTKlVoWAGkOSlON0uvhMREqMv3CxT4Mq48fR5B3mojMCE1ay+RME+t2XB4YvE407QVZ0Zy3o7Hj7krcukF9wSqBlJVvGSICF069yoH1WlCidcfXDrX4DmQpr0hNS5gJdAzJVzdpcLAF4+ydr4p/tkSdpv8N0vU30KCaKb0fX0=
 before_script:
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+before_install:
+  - wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip
+  - unzip BrowserStackLocal-linux-x64.zip
+  - ./BrowserStackLocal --key $BROWSER_STACK_ACCESS_KEY --local-identifier karma.$TRAVIS_BUILD_NUMBER --force > /dev/null &
+  - sleep 15
