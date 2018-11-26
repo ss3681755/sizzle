@@ -24,6 +24,8 @@ module.exports = function( config ) {
 		// that will break iframe tests
 		basePath: "../../",
 
+		concurrency: 2,
+
 		frameworks: [ "qunit" ],
 
 		files: [
