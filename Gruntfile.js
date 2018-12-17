@@ -190,22 +190,22 @@ module.exports = function( grunt ) {
 			watch: {
 				background: true,
 				singleRun: false,
-				browsers: browsers.phantom
+				browsers: []// browsers.phantom
 			},
 			phantom: {
-				browsers: browsers.phantom
+				browsers: []// browsers.phantom
 			},
 			desktop: {
-				browsers: browsers.desktop
+				browsers: []// browsers.desktop
 			},
 			android: {
 				browsers: browsers.android
 			},
 			ios: {
-				browsers: browsers.ios
+				browsers: []// browsers.ios
 			},
 			oldIe: {
-				browsers: browsers.old.ie,
+				browsers: [],// browsers.old.ie,
 
 				// Support: IE <=8 only
 				// Force use of JSONP polling
@@ -213,16 +213,16 @@ module.exports = function( grunt ) {
 				forceJSONP: true
 			},
 			oldOpera: {
-				browsers: browsers.old.opera
+				browsers: []// browsers.old.opera
 			},
 			oldFirefox: {
-				browsers: browsers.old.firefox
+				browsers: []// browsers.old.firefox
 			},
 			oldChrome: {
-				browsers: browsers.old.chrome
+				browsers: []// browsers.old.chrome
 			},
 			oldSafari: {
-				browsers: browsers.old.safari
+				browsers: []// browsers.old.safari
 			},
 			oldAndroid: {
 				browsers: browsers.old.android
