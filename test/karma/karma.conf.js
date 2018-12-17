@@ -5,9 +5,9 @@ var grunt = require( "grunt" );
 module.exports = function( config ) {
 	var isTravis = process.env.TRAVIS,
 		dateString = grunt.config( "dateString" ),
-		isBrowserStack = !!( process.env.BROWSER_STACK_USERNAME &&
-			process.env.BROWSER_STACK_ACCESS_KEY ),
-		hostName = isBrowserStack? "bs-local.com" : "localhost";
+		isBrowserStack = process.env.BROWSER_STACK_USERNAME &&
+			process.env.BROWSER_STACK_ACCESS_KEY,
+		hostName = isBrowserStack ? "bs-local.com" : "localhost";
 
 	config.set({
 		browserStack: {
@@ -77,7 +77,6 @@ module.exports = function( config ) {
 
 		hostname: hostName,
 		port: 9876,
-		hostname: "bs-local.com",
 
 		// Possible values:
 		// config.LOG_DISABLE

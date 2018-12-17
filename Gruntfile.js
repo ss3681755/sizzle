@@ -229,15 +229,15 @@ module.exports = function( grunt ) {
 			},
 			all: {
 				browsers: browsers.phantom.concat(
-					browsers.desktop,
-					browsers.ios,
+					// browsers.desktop,
+					// browsers.ios,
 					browsers.android,
 
-					browsers.old.firefox,
-					browsers.old.chrome,
-					browsers.old.safari,
-					browsers.old.ie,
-					browsers.old.opera,
+					// browsers.old.firefox,
+					// browsers.old.chrome,
+					// browsers.old.safari,
+					// browsers.old.ie,
+					// browsers.old.opera,
 
 					browsers.old.android
 				)
